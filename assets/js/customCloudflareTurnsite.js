@@ -28,6 +28,7 @@ async function handlePost(request) {
 		var customTurnstile = document.getElementById('customTurnstile');
 		customTurnstile.classList.remove('invisible');
 		customTurnstile.classList.add('visible');
+		return customTurnstile;
 	}
 
 async function changeText() {
