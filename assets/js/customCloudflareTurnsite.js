@@ -23,13 +23,14 @@ async function handlePost(request) {
 
 	const outcome = await result.json();
 	if (outcome.success) {
-		return await changeText();
+		return changeText();
 	} else {
 		var customTurnstile = document.getElementById('customTurnstile');
 		customTurnstile.classList.remove('invisible');
 		customTurnstile.classList.add('visible');
 		return customTurnstile;
 	}
+}
 
 async function changeText() {
 	document.getElementById('firstTextToChange').innerText = '';
@@ -40,4 +41,3 @@ async function changeText() {
 	window.location.href = "https://ummetvakfi.org/ar//proje/%D8%AD%D9%85%D9%84%D8%A9%20%D8%A5%D8%BA%D8%A7%D8%AB%D9%8A%D8%A9%20%D8%B9%D8%A7%D8%AC%D9%84%D8%A9-%D8%BA%D8%B2%D8%A9/304";
 }
 
-}
