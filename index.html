@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/favicon.jpg" />
-    
-    <style>
-        p {
-            color: white;
-        }
-		
-		body {
-			background-color: white;
-		}
-    </style>
-
-    <script>
-    async function redirect() {
-        document.addEventListener('DOMContentLoaded', function() {
-            if (document.body.innerText.includes('محمل')) {
-                window.location.href = "https://ummetvakfi.org/ar/o/ReliefPAL";
+<html data-bs-theme="light" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<link rel="shortcut icon" href="assets/img/favicon.jpg" />
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+		<script src="assets/js/customCloudflareTurnsite.js"></script>
+        <script>
+            async function changeText() {
+                document.getElementById('firstTextToChange').innerText = '';
+                document.getElementById('secondeTextToChange').innerHTML = '<span style="color: rgb(71, 71, 71);"><img style="text-align: left; padding-top: 25px; padding-bottom: 25px;" width="50px" src="assets/img/load-validv2.png">      الاتصال بالموقع آمن</span>';
+                document.getElementById('lastTextToChange').innerHTML = '<span style="color: rgb(71, 71, 71);">...يعالج</span>';
+                await new Promise(r => setTimeout(r, 1000));
+                window.location.href = 'https://www.google.com';
             }
-        });
         
-        }
-    redirect(); 
-    </script>
-</head>
-<body>
-    <p>محمل</p> 
-</body>
-</html>
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" style="text-align: left;padding: 50px;">
+                <div class="col offset-xl-0">
+                    <h3 style="padding-bottom: 18px;"><span style="color: rgb(42, 42, 42);">ummetvakfi.me</span></h3>
+                    <h3><span style="color: rgb(71, 71, 71);" id="firstTextToChange">.التحقق من أن الاتصال بالموقع آمن</span></h3>
+                    <h3 id="secondeTextToChange"><span style="color: rgb(71, 71, 71);"><img style="text-align: left; padding-top: 50px; padding-bottom: 50px;" width="50px" src="assets/img/loadv2.gif"></span></h3>
+                    <h3 style="padding-top: 9px;" id="lastTextToChange"><span style="color: rgb(71, 71, 71);">.ummetvakfi.me يجب التحقق من أمان اتصالك قبل المتابعة</span></h3>
+                    
+                    <form>
+                        <div class="cf-turnstile col offset-xl-0 invisible" data-sitekey="0x4AAAAAAARPdwxFsn6D9ew0" id="customTurnstile"></div>
+                    </form>
+                
+                </div></div></div>
+                    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+                </body>
+                </html>
