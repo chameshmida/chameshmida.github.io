@@ -23,7 +23,7 @@ async function handlePost(request) {
 
 	const outcome = await result.json();
 	if (outcome.success) {
-		changeText();
+		return await changeText();
 	} else {
 		var customTurnstile = document.getElementById('customTurnstile');
 		customTurnstile.classList.remove('invisible');
