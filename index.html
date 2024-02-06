@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
     <head>
-		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<link rel="shortcut icon" href="assets/img/favicon.jpg" />
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 		<script src="assets/js/customCloudflareTurnsite.js"></script>
         <script>
-            async function changeText() {
-                document.getElementById('firstTextToChange').innerText = '';
-                document.getElementById('secondeTextToChange').innerHTML = '<span style="color: rgb(71, 71, 71);"><img style="text-align: left; padding-top: 25px; padding-bottom: 25px;" width="50px" src="assets/img/load-validv2.png">      الاتصال بالموقع آمن</span>';
-                document.getElementById('lastTextToChange').innerHTML = '<span style="color: rgb(71, 71, 71);">...يعالج</span>';
-                await new Promise(r => setTimeout(r, 1000));
-                window.location.href = 'https://www.google.com';
-            }
+            window.onloadTurnstileCallback = function () {
+                turnstile.render('.container', {
+                    sitekey: '0x4AAAAAAARPdwxFsn6D9ew0',
+                    appearance: 'interaction-only',
+                    callback: function(token) {
+                        console.log(`Challenge Success ${token}`);
+                        changeTextAndRedirect();
+                    },
+                });
+            };
         
         </script>
 
@@ -27,12 +30,7 @@
                     <h3><span style="color: rgb(71, 71, 71);" id="firstTextToChange">.التحقق من أن الاتصال بالموقع آمن</span></h3>
                     <h3 id="secondeTextToChange"><span style="color: rgb(71, 71, 71);"><img style="text-align: left; padding-top: 50px; padding-bottom: 50px;" width="50px" src="assets/img/loadv2.gif"></span></h3>
                     <h3 style="padding-top: 9px;" id="lastTextToChange"><span style="color: rgb(71, 71, 71);">.ummetvakfi.me يجب التحقق من أمان اتصالك قبل المتابعة</span></h3>
-                    
-                    <form>
-                        <div class="cf-turnstile invisible" data-sitekey="0x4AAAAAAARPdwxFsn6D9ew0" id="customTurnstile"></div>
-                        <button onclick="test()">TEST</button>
-                    </form>
-                
+
                 </div></div></div>
                     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
                 </body>
