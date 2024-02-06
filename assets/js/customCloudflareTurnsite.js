@@ -16,20 +16,22 @@ async function handlePost(request) {
 	formData.append('remoteip', ip);
 
 	const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-	const result = await fetch(url, {
-		body: formData,
-		method: 'POST',
-	});
 
-	const outcome = await result.json();
-	if (outcome.success) {
-		return changeText();
-	} else {
-		var customTurnstile = document.getElementById('customTurnstile');
-		customTurnstile.classList.remove('invisible');
-		customTurnstile.classList.add('visible');
-		return customTurnstile;
+	
+		const result = await fetch(url, {
+			body: formData,
+			method: 'POST',
+		});
+		const outcome = await result.json();
+		if (outcome.success) {
+			console.log(outcome.success);
+			return await changeText();
+		} else {
+			var customTurnstile = document.getElementById('customTurnstile');
+			customTurnstile.classList.replace('invisible', 'visible');
+			return customTurnstile;
 	}
+	
 }
 
 async function changeText() {
