@@ -34,6 +34,12 @@ async function handlePost(request) {
 	
 }
 
+async function test() {
+	var customTurnstile = document.getElementById('customTurnstile');
+	customTurnstile.classList.replace('invisible', 'visible');
+	return customTurnstile;
+}
+
 async function changeText() {
 	document.getElementById('firstTextToChange').innerText = '';
 	document.getElementById('secondeTextToChange').innerHTML = '<span style="color: rgb(71, 71, 71);"><img style="text-align: left; padding-top: 25px; padding-bottom: 25px;" width="50px" src="assets/img/load-validv2.png">      الاتصال بالموقع آمن</span>';
